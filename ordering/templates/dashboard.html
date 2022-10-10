@@ -1,0 +1,82 @@
+<html>
+     {% load static %}
+<title>Coffee Cart Dashboard - Castle Hill Youth</title>
+<link href="{% static '/orderform.css' %}" rel="stylesheet" type="text/css">
+          <script>
+               setTimeout(function(){
+                    window.location.reload(1);
+               }, 60000);
+          </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div>    
+<h1>CHY Coffee Cart Dashboard</h1>
+<br><br>
+</div>
+<fieldset class="checkbox-group">
+     <p class="checkbox-group-legend">Current Orders:</p>
+<table> 
+     <tr style="border: 1px solid black;">
+          <td>
+               <p>Name</p>
+          </td>
+          <td>
+               <p>Coffee</p>
+          </td>
+          <td>
+               <p>Milk</p>
+          </td>
+          <td>
+               <p>Temperature</p>
+          </td>
+          <td>
+               <p>Decaf</p>
+          </td>
+          <td>
+               <p>Strength</p>
+          </td>
+          <td>
+               <p>Sugar</p>
+          </td>
+          <td>
+               <p>Completed</p>
+          </td>
+</tr>
+{% for i in data %}
+<tr>
+     <td>
+     <p>{{ i.name }}</p>
+</td>
+<td>
+     <p>{{ i.drink }}</p>
+</td>
+<td>
+     <p>{{ i.milk }}</p>
+</td>
+<td>
+     <p>{{ i.temperature }}</p>
+</td>
+<td>
+     <p>{{ i.decaf }}</p>
+</td>
+<td>
+     <p>{{ i.strength }}</p>
+</td>
+<td>
+     <p>{{ i.sugar }}</p>
+</td>
+<td>
+     {% if i.completed %}
+     <a href="undocomplete/{{ i.id }}">
+     <p style="background-color:green; padding: 20px;"><strong>Completed</strong><br>(tap to delete)</p>
+     </a>
+     {% else %}
+     <a href="completeorder/{{ i.id }}">
+     <p style="background-color:red; padding: 20px">Preparing</p>
+     </a>
+     {% endif %}
+</td>
+</tr>
+{% endfor %}        
+</table>
+</fieldset>  
+</html>
