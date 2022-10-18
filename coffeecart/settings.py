@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.5.101', '127.0.0.1']
 
+LOGIN_REDIRECT_URL = '/ordering/dashboard'
 
 # Application definition
 
